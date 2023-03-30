@@ -809,9 +809,9 @@ public class Main {
       e.printStackTrace();
     }
 
-    String filename = "./src/given/songs.txt";
-    String solutions = "./src/given/output.txt";
-    String config_path = "./src/given/config.txt";
+    String filename = "./given/songs.txt";
+    String solutions = "./given/output.txt";
+    String config_path = "./given/config.txt";
 
     try {
       grade += testPlaylist(filename, solutions, config_path); // Max 32
