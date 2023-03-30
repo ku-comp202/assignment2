@@ -557,6 +557,7 @@ public class Main {
     stack = new Stack<JavaLL<Integer>, Integer>(new JavaLL<Integer>());
     queue = new Queue<JavaLL<Integer>, Integer>(new JavaLL<Integer>());
 
+    try {
     for (int i = 0; i < integerList.length; i++) {
       int a = rand.nextInt(50);
       integerList[i] = a;
@@ -565,11 +566,6 @@ public class Main {
     }
     int missed = 0;
     for (int i = 0; i < integerList.length; i++) {
-      if (stack.pop() == null || queue.pop() == null){
-        missed = 1;
-        break;
-      }
-
       int s = stack.pop();
       int q = queue.pop();
 
@@ -584,7 +580,9 @@ public class Main {
       Autograder.Log("The container input-output orderings are not correct");
     } else
       grade += 7;
-
+  	}catch (Exception e) {
+      Autograder.Log("Exception caught for stacks or queues!");
+    }
     // May test with reference implementations and will not give those to you!
 
     return grade;
@@ -809,9 +807,9 @@ public class Main {
       e.printStackTrace();
     }
 
-    String filename = "./given/songs.txt";
-    String solutions = "./given/output.txt";
-    String config_path = "./given/config.txt";
+    String filename = "./src/given/songs.txt";
+    String solutions = "./src/given/output.txt";
+    String config_path = "./src/given/config.txt";
 
     try {
       grade += testPlaylist(filename, solutions, config_path); // Max 32
